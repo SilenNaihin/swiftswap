@@ -4,8 +4,8 @@ export const Text = styled.p`
   font-family: "Roboto Mono", monospace;
   font-style: normal;
   font-weight: ${(p) => (p.bold ? 600 : 300)};
-  font-size: ${(props) => props.size || "14px"};
-  line-height: 16px;
+  font-size: ${(props) => props.size || "18px"};
+  line-height: 6px;
   letter-spacing: ${(props) => props.spacing || "normal"};
   color: ${(p) => p.color || "#fff"};
 `;
@@ -16,10 +16,9 @@ export const Button = styled.button`
   border-radius: 10px;
   border: ${(p) => p.border || "none"};
   width: ${(p) => p.width || ""};
-  &:focus {
-    outline: none !important;
-    box-shadow: 0 0 0 1pt black;
-  }
+  cursor: pointer;
+  outline: none !important;
+  box-shadow: ${(p) => p.shadow || "none"};
 `;
 
 export const FlexRow = styled.div`

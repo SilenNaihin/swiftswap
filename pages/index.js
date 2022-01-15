@@ -26,7 +26,7 @@ export default function Home() {
       <Content>
         <SwapCard />
         <SwapImgSection>
-          <Text size="20px">SWAP TO POLYGON FOR $10.00</Text>
+          <Text spacing="6px" size="20px" bold>SWAP TO POLYGON FOR $10.00</Text>
           <GraphicWrapper>
             <Image
               layout={"fill"}
@@ -45,8 +45,8 @@ export default function Home() {
 }
 
 const GlobalContainer = styled.div`
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: radial-gradient(
     circle,
     rgba(108, 49, 44, 1) 0%,
@@ -101,11 +101,10 @@ const Content = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 12px 24px;
+  padding: 56px 32px;
 `;
 
 const SwapImgSection = styled.div`
-  padding: 64px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -113,7 +112,7 @@ const SwapImgSection = styled.div`
 `;
 
 const GraphicWrapper = styled.div`
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   position: relative;
 `;
