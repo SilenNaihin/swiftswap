@@ -47,12 +47,6 @@ export default function Home() {
 const GlobalContainer = styled.div`
   width: 100%;
   height: 100%;
-  background: radial-gradient(
-    circle,
-    rgba(108, 49, 44, 1) 0%,
-    rgba(46, 9, 56, 1) 34%,
-    rgba(0, 0, 0, 1) 78%
-  );
 `;
 
 const TopSection = styled.div`
