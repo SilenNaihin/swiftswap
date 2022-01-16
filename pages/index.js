@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <GlobalContainer>
+    <>
       <TopSection>
         <LogoSection>
           <LogoWrapper>
@@ -18,15 +18,17 @@ export default function Home() {
               alt="logo"
             />
           </LogoWrapper>
-          <Text size="20px" spacing="6px">
+          <ByText size="20px" spacing="6px">
             BY METAPHRASE
-          </Text>
+          </ByText>
         </LogoSection>
       </TopSection>
       <Content>
         <SwapCard />
         <SwapImgSection>
-          <Text spacing="6px" size="20px" bold>SWAP TO POLYGON FOR $10.00</Text>
+          <PolygonSwapText spacing="6px" bold>
+            SWAP TO POLYGON FOR $10.00
+          </PolygonSwapText>
           <GraphicWrapper>
             <Image
               layout={"fill"}
@@ -40,23 +42,23 @@ export default function Home() {
       <ConnectWallet>
         <Text size="16px">CONNECT WALLET</Text>
       </ConnectWallet>
-    </GlobalContainer>
+    </>
   );
 }
 
-const GlobalContainer = styled.div`
-  width: 100%;
-  height: 100%;
-`;
-
 const TopSection = styled.div`
-  padding-top: 12px;
+  top: 12px;
   display: flex;
+  position: absolute;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding-left: 24px;
-  padding-right: 24px;
+  @media (max-width: 800px) {
+    justify-content: start;
+  }
+  @media (max-width: 600px) {
+    justify-content: center;
+  }
 `;
 
 const LogoWrapper = styled.div`
@@ -71,6 +73,12 @@ const LogoSection = styled.div`
   justify-content: end;
   align-items: center;
   flex-direction: column;
+  @media (max-width: 800px) {
+    align-items: start;
+  }
+  @media (max-width: 600px) {
+    align-items: center;
+  }
 `;
 
 const ConnectWallet = styled.button`
@@ -82,8 +90,17 @@ const ConnectWallet = styled.button`
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 24px;
-  right: 24px;
+  @media (max-width: 800px) {
+    top: 136px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (min-width: 800px) {
+    right: 24px;
+    top: 12px;
+  }
   background: linear-gradient(
     0deg,
     rgba(1, 48, 202, 1) 0%,
@@ -95,18 +112,75 @@ const Content = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 56px 32px;
+  padding-top: 25px;
+  @media (max-height: 800px) {
+    padding-top: 125px;
+  }
+  @media (min-height: 800px) {
+    width: 100vw;
+    height: 100vh;
+  }
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+`;
+
+const ByText = styled(Text)`
+  @media (max-width: 600px) {
+    margin-left: 0px !important;
+  }
+  @media (max-width: 800px) {
+    margin-left: 28px;
+  }
 `;
 
 const SwapImgSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  @media (min-width: 800px) {
+    margin-top: 56px;
+    flex-direction: column;
+  }
+  @media (max-width: 800px) {
+    position: absolute;
+    right: 18px;
+    top: 25px;
+    flex-direction: row;
+  }
 `;
 
 const GraphicWrapper = styled.div`
   width: 400px;
   height: 400px;
+  @media (max-width: 1000px) {
+    width: 350px;
+    height: 350px;
+  }
+  @media (max-width: 900px) {
+    width: 300px;
+    height: 300px;
+  }
+  @media (max-width: 800px) {
+    width: 125px;
+    height: 125px;
+  }
+  @media (max-width: 600px) {
+    display: none;
+  }
   position: relative;
+`;
+
+const PolygonSwapText = styled(Text)`
+  font-size: 20px;
+  @media (max-width: 1000px) {
+    font-size: 18px;
+  }
+  @media (max-width: 900px) {
+    font-size: 16px;
+    letter-spacing: 3px;
+  }
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;

@@ -15,7 +15,7 @@ export const Button = styled.button`
   background: ${(p) => p.color || "#ff0000"};
   border-radius: 10px;
   border: ${(p) => p.border || "none"};
-  width: ${(p) => p.width || ""};
+  width: ${(p) => p.width || "100%"};
   cursor: pointer;
   outline: none !important;
   box-shadow: ${(p) => p.shadow || "none"};

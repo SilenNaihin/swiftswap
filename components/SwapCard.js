@@ -71,7 +71,27 @@ const Container = styled.div`
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.25);
   border: 2px solid #c5bdbf;
+  @media (max-width: 800px) {
+    width: 450px !important;
+    margin-top: 100px !important;
+  }
+  @media (max-width: 1000px) {
+    width: 350px;
+  }
+  @media (max-width: 1100px) {
+    width: 400px;
+  }
+  @media (max-width: 600px) {
+    width: 370px !important;
+  }
+  @media (max-width: 450px) {
+    width: 320px !important;
+  }
   padding: 24px 36px;
+  margin-top: 56px;
+  @media (max-width: 800px) {
+    margin-top: 78px;
+  }
 `;
 
 const AmountSection = styled.div`
