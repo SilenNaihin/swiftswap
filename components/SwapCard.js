@@ -3,7 +3,8 @@ import { Text, Button, FlexRow } from "../styles/css";
 import { useState } from "react";
 
 export default function SwapCard() {
-  const [clicked, setClicked] = useState(2);
+  const [clicked, setClicked] = useState(false);
+  const [swapType, setSwapType] = useState(false);
 
   return (
     <Container>
@@ -11,20 +12,20 @@ export default function SwapCard() {
         <SwapButton
           padding="0"
           color="none"
-          shadow={clicked === 0 ? "none" : "inset 0 0 0 1.5pt #c5bdbf"}
+          shadow={!clicked ? "none" : "inset 0 0 0 1.5pt #c5bdbf"}
           width="50%"
           clicked={clicked}
-          onClick={() => setClicked(0)}
+          onClick={() => setClicked(false)}
         >
           <Text bold={true}>SWAP</Text>
         </SwapButton>
         <BuyButton
           padding="0"
           color="none"
-          shadow={clicked === 1 ? "none" : "inset 0 0 0 1.5pt #c5bdbf"}
+          shadow={clicked ? "none" : "inset 0 0 0 1.5pt #c5bdbf"}
           width="50%"
           clicked={clicked}
-          onClick={() => setClicked(1)}
+          onClick={() => setClicked(true)}
         >
           <Text bold={true}>BUY</Text>
         </BuyButton>
@@ -36,11 +37,19 @@ export default function SwapCard() {
       <ReceiveSection>
         <Text>Recieve in:</Text>
         <FlexRow style={{ marginTop: "-12px" }}>
-          <ReceiveInput type="radio" />
+          <ReceiveInput
+            type="radio"
+            checked={!swapType}
+            onChange={() => setSwapType(false)}
+          />
           <Text bold>wETH (Polygon)</Text>
         </FlexRow>
         <FlexRow>
-          <ReceiveInput type="radio" />
+          <ReceiveInput
+            type="radio"
+            checked={swapType}
+            onChange={() => setSwapType(true)}
+          />
           <Text bold>MATIC (Polygon)</Text>
         </FlexRow>
       </ReceiveSection>
@@ -99,14 +108,14 @@ const ReceiveInput = styled.input`
 
 const BuyButton = styled(Button)`
   background: ${(props) =>
-    props.clicked === 1
+    props.clicked
       ? "linear-gradient(0deg,rgba(45, 1, 204, 1) 0%,rgba(137, 1, 253, 1) 86%)"
       : "none"};
 `;
 
 const SwapButton = styled(Button)`
   background: ${(props) =>
-    props.clicked === 0
+    !props.clicked
       ? "linear-gradient(0deg,rgba(45, 1, 204, 1) 0%,rgba(137, 1, 253, 1) 86%)"
       : "none"};
   margin-right: 24px;
